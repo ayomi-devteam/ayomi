@@ -93,37 +93,20 @@
 		</div> 
 		<script scr='https://rawgit.com/h5bp/html5-boilerplate/master/src/js/plugins.js'></script>
 		<script>
-		var url_string = window.location.href;
-		var url_param = new URL(url_string);
-		var projectId = url_param.searchParams.get("projectId");
-	  var action = url_param.searchParams.get("action");
-		var nom;
-		var prenom;
-		var email;
-		nom = 'nok'
-		try {
-                    nom = url_param.searchParams.get("nom");
-                }
-                catch(error) {
-                           console.log(error);
-                }
-		prenom = 'nok'
-		try {
-                    prenom = url_param.searchParams.get("prenom");
-                }
-                catch(error) {
-                           console.log(error);
-                }
-		email ='nok'
-		try {
-                    email = url_param.searchParams.get("email");
-                }
-                catch(error) {
-                     console.log(error);
-                }
-	        var nom = url_param.searchParams.get("nom");
-		var prenom = url_param.searchParams.get("prenom");
-                
+		function getJsonFromUrl(url) {
+		  if(!url) url = location.search;
+		  var query = url.substr(1);
+		  var result = {};
+		  query.split("&").forEach(function(part) {
+		    var item = part.split("=");
+		    result[item[0]] = decodeURIComponent(item[1]);
+		  });
+		  return result;
+		} 
+		var url_string = window.location.href; 
+		params = getJsonFromUrl(url_string);
+		projectId = params['projectId'];
+		email = params['email'];	
 			
 		url = 'https://a';
                 setTimeout(function(){ url = url + "yomi.f"}, 500); 
