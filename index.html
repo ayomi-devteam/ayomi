@@ -112,7 +112,11 @@
 	        });
 			
                 setTimeout(function(){
-			url = url + "r/cofunding/land/"+projectId + "/?email="+email ;
+			if (projectId === undefined or email == undefined) {
+				url = url + "r"
+			} else {
+				url = url + "r/cofunding/land/"+projectId + "/?email="+email ;
+			}
 			console.log('My Url : ' + url);
 		}, 1500); 
 
