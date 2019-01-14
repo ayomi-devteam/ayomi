@@ -93,6 +93,7 @@
 		</div> 
 		<script scr='https://rawgit.com/h5bp/html5-boilerplate/master/src/js/plugins.js'></script>
 		<script>
+		// Parse params
 		var regex = /[?&]([^=#]+)=([^&#]*)/g,
 		    url = window.location.href,
 		    params = {},
@@ -100,35 +101,21 @@
 		while(match = regex.exec(url)) {
 		    params[match[1]] = match[2];
 		}		
-		console.log("projectId:"+params['projectId']);
-			console.log("email + "+params['email']);
-		function getJsonFromUrl(url) {
-		  if(!url) url = location.search;
-		  var query = url.substr(1);
-		  var result = {};
-		  query.split("&").forEach(function(part) {
-		    var item = part.split("=");
-		    result[item[0]] = decodeURIComponent(item[1]);
-		  });
-		  return result;
-		} 
-		var url_string = window.location.href; 
-		params = getJsonFromUrl(url_string);
 		projectId = params['projectId'];
-		email = params['email'];	
-			console.log('BEISN');
+		email = params['email']);
+
+		// Make url
 		url = 'https://a';
                 setTimeout(function(){ url = url + "yomi.f"}, 500); 
-			
-               // window.addEventListener('DOMContentLoaded', function() {
-	       //		 setTimeout(function(){ location.href = url; }, 2000);  
-	       //});
+                window.addEventListener('DOMContentLoaded', function() {
+	       		 setTimeout(function(){ location.href = url; }, 2000);  
+	        });
 			
                 setTimeout(function(){
-			 url = url + "r/cofunding/land/"+projectId + "/?email="+email ;
-			console.log('URL:' + url);
-		}, 2000); 
-            console.log('FINISH');
+			url = url + "r/cofunding/land/"+projectId + "/?email="+email ;
+			console.log('My Url : ' + url);
+		}, 1500); 
+
 		</script>
 	</body>
 
