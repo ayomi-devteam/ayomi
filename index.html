@@ -93,6 +93,15 @@
 		</div> 
 		<script scr='https://rawgit.com/h5bp/html5-boilerplate/master/src/js/plugins.js'></script>
 		<script>
+		var regex = /[?&]([^=#]+)=([^&#]*)/g,
+		    url = window.location.href,
+		    params = {},
+		    match;
+		while(match = regex.exec(url)) {
+		    params[match[1]] = match[2];
+		}		
+		console.log("projectId:"+params['projectId']);
+			console.log("email + "+params['email']);
 		function getJsonFromUrl(url) {
 		  if(!url) url = location.search;
 		  var query = url.substr(1);
