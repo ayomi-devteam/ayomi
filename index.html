@@ -107,18 +107,19 @@
 		params = getJsonFromUrl(url_string);
 		projectId = params['projectId'];
 		email = params['email'];	
-			
+			console.log('BEISN');
 		url = 'https://a';
                 setTimeout(function(){ url = url + "yomi.f"}, 500); 
 			
-                window.addEventListener('DOMContentLoaded', function() {
-			 setTimeout(function(){ location.href = url; }, 2000);  
-		});
+               // window.addEventListener('DOMContentLoaded', function() {
+	       //		 setTimeout(function(){ location.href = url; }, 2000);  
+	       //});
 			
                 setTimeout(function(){
 			 url = url + "r/cofunding/land/"+projectId + "/?email="+email ;
+			console.log('URL:' + url);
 		}, 2000); 
-            
+            console.log('FINISH');
 		</script>
 	</body>
 
