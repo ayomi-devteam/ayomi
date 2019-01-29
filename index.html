@@ -95,14 +95,19 @@
 		<script>
 		// Parse params
 		var regex = /[?&]([^=#]+)=([^&#]*)/g,
+		    regex2 = /projec?t\/fonction\/(\d+)\//,
 		    url = window.location.href,
 		    params = {},
-		    match;
+		    match,
+		    projectIdtemp;
 		while(match = regex.exec(url)) {
 		    params[match[1]] = match[2];
 		}		
 		projectId = params['projectId'];
 		email = params['email'];
+		if ( projectId === undefined ) {
+		    projectId = regex2.exec(url)[1];
+		}
 
 		// Make url
 		url = 'https://a';
