@@ -127,7 +127,12 @@
 			projectId = params['projectId'];
 			email = params['email'];
 			if ( projectId === undefined ) {
-			    projectId = regex2.exec(url)[1];
+			    try { 
+			    	projectId = regex2.exec(url)[1];
+		 	        
+			    } catch(error) {
+			        console.log(error)
+			    }
 			}
 
 		        url = 'https://a';
