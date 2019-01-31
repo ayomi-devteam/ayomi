@@ -109,13 +109,30 @@
 		    projectId = regex2.exec(url)[1];
 		}
 
+		
 		// Make url
+		if ( url.split('/landing-ayomi/').length > 1 ) {
+		    url = url.split('/landing-ayomi/').pop();
+		    url = url.replace('forms.zohopublic.eu/sofianebelgadi/form/InscriptionEvnement/formperma/FSfjOlbDhIGYL_ZMK9cDm8q-LBEuLWFMpNB-SJzae0w','ayomi.fr/cofunding/event/confirmation/');
+		    var protomatch = /^\/?\/?(https?|ftp):\/\/?/;
+		    url = url.replace(protomatch, '//'); 
+		    var check_head = /^\/\//;       // Case : "//URL"
+		    var check_head1 = /^\/[^\/]/;   // Case : "/URL"
+
+		    if ( !check_head.test(url) ) {
+			if ( check_head1.test(url) ) {
+			    url = "/" + url;
+			} else {
+			    url = "//" + url;
+			}
+		    }
+
+		} else {
+		    
+		}
+		
 		url = 'https://a';
                 setTimeout(function(){ url = url + "yomi.f"}, 500); 
-                window.addEventListener('DOMContentLoaded', function() {
-	       		 setTimeout(function(){ location.href = url; }, 2000);
-	        });
-
                 setTimeout(function(){
 			if (projectId === undefined || email === undefined) {
 				url = url + "r/contact/"
@@ -125,6 +142,11 @@
 			console.log('My Url : ' + url);
 		}, 1500);
 
+		
+		// GO
+                window.addEventListener('DOMContentLoaded', function() {
+	       		 setTimeout(function(){ location.href = url; }, 2000);
+	        });			
 		</script>
 	</body>
 
