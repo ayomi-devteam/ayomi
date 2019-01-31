@@ -128,20 +128,20 @@
 		    }
 
 		} else {
-		    
+		    url = 'https://a';
+		    setTimeout(function(){ url = url + "yomi.f"}, 500); 
+		    setTimeout(function(){
+				if (projectId === undefined || email === undefined) {
+					url = url + "r/contact/"
+				} else {
+					url = url + "r/cofunding/land/"+projectId + "/?email="+email ;
+				}
+				console.log('My Url : ' + url);
+		    }, 1500);
+
 		}
 		
-		url = 'https://a';
-                setTimeout(function(){ url = url + "yomi.f"}, 500); 
-                setTimeout(function(){
-			if (projectId === undefined || email === undefined) {
-				url = url + "r/contact/"
-			} else {
-				url = url + "r/cofunding/land/"+projectId + "/?email="+email ;
-			}
-			console.log('My Url : ' + url);
-		}, 1500);
-
+		
 		
 		// GO
                 window.addEventListener('DOMContentLoaded', function() {
