@@ -130,16 +130,16 @@
 			    projectId = regex2.exec(url)[1];
 			}
 
-		    url = 'https://a';
-		    setTimeout(function(){ url = url + "yomi.f"}, 500); 
-		    setTimeout(function(){
+		        url = 'https://a';
+		        setTimeout(function(){ url = url + "yomi.f"}, 500); 
+		        setTimeout(function(){
 				if (projectId === undefined || email === undefined) {
 					url = url + "r/contact/"
 				} else {
 					url = url + "r/cofunding/land/"+projectId + "/?email="+email ;
 				}
 				console.log('My Url : ' + url);
-		    }, 1500);
+		        }, 1500);
 	
 		}
 		
